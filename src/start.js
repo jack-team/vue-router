@@ -13,8 +13,6 @@ var router = new VueRouter();
 vueConfig(router)
 
 
-
-
 router.start(App, '#app');
 
 
