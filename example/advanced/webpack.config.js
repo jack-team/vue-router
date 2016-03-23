@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: ['webpack/hot/dev-server', './example/advanced/index.js']
+    app: ['webpack/hot/dev-server', './example/advanced/start.js']
   },
   output: {
     path: './example/advanced',
