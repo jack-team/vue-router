@@ -1,0 +1,143 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #ececec;
+}
+#app{
+    width: 20rem;
+}
+.app-nav{
+    width: 100%;
+    padding: 0.4rem 0;
+    background: #fff;
+    height: 2rem;
+    overflow: hidden;
+    border-bottom: 1px solid #ececec;
+}
+.nav-content{
+    width: 94%;
+    margin:auto;
+    border: 1px solid #119911;
+    height: 1.8rem;
+}
+.app-nav a{
+    width: 50%;
+    display: block;
+    float: left;
+    text-align: center;
+    line-height: 1.8rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    height: 1.8rem;
+    position: relative;
+    color: #119911;
+}
+.app-nav a:last-child:before{
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background: #119911;
+    top: 0;
+    left: 0;
+}
+.view{
+    position: relative;
+    display: block;
+    background: #ececec;
+    width: 20rem;
+    overflow: hidden;
+}
+.view-page-1,.view-page-2,.detail-page{
+    width: 100%;
+    overflow: hidden;
+}
+.view-page-1,.detail-page{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    height: 400px;
+    background: #f40;
+}
+.view-page-2{
+    transform: translateX(100%);
+    -wekkit-transform: translateX(-100%);
+}
+.move-center{
+    transition: all .3s  cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateX(0);
+    -webkit-transition: all .3s  cubic-bezier(0.77, 0, 0.175, 1);
+    -webkit-transform: translateX(0);
+}
+.g-link-active{
+    background: #119911;
+    color: #fff!important;
+}
+.s-link-active{
+    background: #ececec;
+}
+.item-list{
+    height: 7rem;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    padding: .3rem;
+    display: block;
+}
+.item-list:first-child{
+   margin-top: .5rem;
+}
+.item-image{
+    width: 5rem;
+    float: left;
+    height: 100%;
+    height: 100%;
+    border: 1px solid #ececec;
+    overflow: hidden;
+}
+.item-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.item-content{
+    float: left;
+    height: 100%;
+    width: 13.8rem;
+    margin-left: 0.4rem;
+    color: #333;
+    font-size: 0.7rem;
+    text-align: justify;
+}
+.title{
+    margin-bottom: 0.65rem;
+    line-height: 1rem;
+}
+.time,.address{
+    margin-bottom: 0.65rem;
+    color: #888;
+    font-size: 0.65rem;
+}
+.money{
+    color: #888;
+}
+.money span{
+    color: #119911;
+}
+
+.iScrollVerticalScrollbar {
+    position: absolute;
+    z-index: 9999;
+    width: 2px;
+    bottom: 2px;
+    top: 2px;
+    right: 2px;
+    overflow: hidden;
+}
+.iScrollVerticalScrollbar .iScrollIndicator {
+    width: 100%;
+    background-color: #999;
+    border-radius:2px ;
+}
+.template{
+    display: none;
+}
