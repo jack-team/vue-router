@@ -10,11 +10,21 @@
     <link rel="stylesheet" href="css/test.css">
   </head>
   <body>
-
-    <div id="app"></div>
-
-    <script src="http://localhost:8080/webpack-dev-server.js"></script>
-    <script src="/src.build.js"></script>
-
+    <div id="app">
+      <div class="app-nav" v-if="show">
+        <div class="nav-content">
+          <a v-link="{ name: 'home',activeClass:'g-link-active'}">首页</a>
+          <a v-link="{ name: 'menu',activeClass:'g-link-active'}">菜单</a>
+        </div>
+      </div>
+      <!-- 路由外链 -->
+      <div id="view-page" class="view">
+        <div class="item-main">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="http://localhost:8080/webpack-dev-server.js"></script>
+  <script src="/src.build.js"></script>
 </html>

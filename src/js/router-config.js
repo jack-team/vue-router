@@ -1,5 +1,6 @@
 
 function vueConfig(router){
+
     router.map({
         '/home': {
             name:'home',
@@ -14,6 +15,7 @@ function vueConfig(router){
             component: require('./../template/detail.vue')
         }
     });
+
 };
 
 module.exports = vueConfig;

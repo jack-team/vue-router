@@ -3,16 +3,18 @@
  */
 //全局iscroll
 (function(root){
-    var IScroll    = require('iscroll');
+    var IScroll    = require('iscroll/build/iscroll-probe');
+    require('zepto/zepto.min.js');
     var IscrollPage = function(options){
         this.handlers = {};
         this.initOptions = {
             pageEl:'body'
         };
-        this.myScroll = null;
-        this.startX   = 0;
-        this.startY   = 0;
-        this.options = this._mergeOptions(this.initOptions,options);
+        this.myScroll  = null;
+        this.startX    = 0;
+        this.startY    = 0;
+        this.loadState = true;
+        this.options   = this._mergeOptions(this.initOptions,options);
         this._init();
     };
     IscrollPage.prototype = {
@@ -25,7 +27,7 @@
             $(this.options.pageEl).height(this.options.pageHeight);
             this.myScroll =  new IScroll(this.options.pageEl,{
                 probeType: 3,
-                scrollbars: 'custom',
+                //scrollbars: 'custom',
                 mouseWheel: true,
                 interactiveScrollbars: true,
                 shrinkScrollbars: 'scale',
@@ -42,16 +44,21 @@
         pageRun:function(evt){
             var y = evt.y >> 0;
             var m = y - this.startY;
+            var direction = 'up';
             if(m != 0 ) {
                 if(m > 0 && m >= 2){
-                    this.scrollDirection('down',-y);
+                    direction = 'down';
+                    this.scrollDirection(direction , -y);
                 } else if (m < 0 && m <= -2 ){
-                    this.scrollDirection('up',-y);
+                    direction = 'up';
+                    this.scrollDirection(direction , -y);
+
                 };
             };
             this.startY = y;
             var maxY = -  evt.maxScrollY;
-            if((maxY + y) <= this.options.buttomY){
+            if((maxY + y) <= this.options.buttomY && (maxY + y) > 0 && direction == 'up' && this.loadState){
+                this.loadState = false;
                 this.srollLoad();
             };
         },
@@ -76,6 +83,11 @@
                 this.handlers[eventType] = [];
             };
             this.handlers[eventType].push(handler);
+            return this;
+        },
+        off:function(key){
+            if(!key) return;
+            delete  this.handlers[key];
             return this;
         },
         _emit: function (eventType) {
